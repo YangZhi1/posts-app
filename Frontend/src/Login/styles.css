@@ -4,8 +4,11 @@
   width: fit-content;
   border-radius: 5px;
   background-color: #c2e7f0;
-  padding: 15px;
-  margin-top: 20px;
+  position: absolute;
+  top: 20%;
+  left: 40%;
+  margin: -25px 0 0 -25px; /* Apply negative top and left margins to truly center the element */
+  padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
