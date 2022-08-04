@@ -7,7 +7,7 @@ const ChatSidebar = ({setSelectedChat, selectedChat}) => {
   return (
     <>
       <div className="users">
-        {users.map((user, index) => {
+        {users && users.map((user, index) => {
           return (
             <button
               className="user-button"
