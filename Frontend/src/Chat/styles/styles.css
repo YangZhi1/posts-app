@@ -1,0 +1,7 @@
+.chat-container {
+  display: flex;
+}
+
+.chat-sidebar {
+  width: 15%;
+}

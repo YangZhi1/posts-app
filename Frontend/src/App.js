@@ -8,6 +8,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import Chat from './Chat';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
       <Router>
         <Routes>
           <Route path="/login" exact element={<Login />} />
+          <Route path="/chat" exact element={<Chat />} />
           <Route path="/" exact element={<Homepage />} />
         </Routes>
       </Router>

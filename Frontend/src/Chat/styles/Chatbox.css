@@ -1,0 +1,17 @@
+.chat-input-container {
+  position: absolute;
+  left: 50%;
+  bottom: 5%;
+}
+
+.chat-input {
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.send-button {
+  position: absolute;
+  top: 25%;
+  right: 5%;
+}
