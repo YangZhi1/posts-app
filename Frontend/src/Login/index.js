@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './styles.css';
 import { auth } from '../firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import Spinner from '../components/ui-components/Spinner';
 
 const Login = () => {
   const [loginEmail, setLoginEmail] = useState('');
@@ -35,6 +34,7 @@ const Login = () => {
 
       if (token) {
         localStorage.setItem('token', token);
+        localStorage.setItem('email', loginEmail);
         setLoading(false);
         setLoginFail(false);
         window.location.href = "/";
