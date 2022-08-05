@@ -7,6 +7,7 @@ const Navbar = () => {
   const onLogout = () => {
     signOut(auth).then(() => {
       localStorage.setItem('token', null);
+      localStorage.setItem('email', null);
       window.location.href = '/login';
     }).catch((error) => {
       console.log('Error:', error);

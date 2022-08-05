@@ -1,38 +1,66 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from '../Navbar';
+import CreatePost from './CreatePost';
 import './posts.css';
 
 const Posts = () => {
-  const allPosts = [
-    {
-      author: "User1",
-      post_id: 0,
-      date_created: Date.now(),
-      date: "05 May 2021",
-      content: "Hello world"
-    },
-    {
-      author: "User2",
-      post_id: 1,
-      date_created: Date.now(),
-      date: "07 May 2021",
-      content: "Hello world 2"
-    },
-  ];
+  const [listOfPosts, setListOfPosts] = useState('');
+
+  const getPosts = (async () => {
+    const postUrl = 'http://localhost:3001/posts';
+    fetch(postUrl)
+    .then(response => response.json())
+    .then(data => {
+      setListOfPosts(data)
+    })
+  })
+
+  useEffect(() => {
+    getPosts();
+  }, [])
+
+  const addPost = (postContent) => {
+    const currentId = listOfPosts.length;
+    const newPost = {
+      author: localStorage.getItem('email'),
+      date: Date.now(),
+      content: postContent,
+      likes: 0
+    }
+    const postUrl = 'http://localhost:3001/new_post';
+
+    fetch(postUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(newPost) })
+    .then(response => response.json())
+    .then(data => console.log('data:', data))
+
+    const newList = [...listOfPosts, newPost];
+    setListOfPosts(newList);
+  }
+
+  const onLikePost = (postid, likes) => {
+    const data = {
+      postid: postid,
+      likes: likes+1
+    }
+    const postLikeUrl = 'http://localhost:3001/update_likes';
+    fetch(postLikeUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
+  }
 
   return (
     <>
       <Navbar />
       
       <div className="all-posts-container">
-        {allPosts && allPosts.map((post, index) => {
+        <CreatePost addPost={addPost} />
+        {listOfPosts && listOfPosts.map((post, index) => {
           return (
             <div className="post-container" key={index}>
               <div className="post-header">
                 <p className="author">{post.author}</p>
-                <p className="date">{post.date}</p>
+                <p className="date">{post.date_created}</p>
               </div>
               <p>{post.content}</p>
+              <p className="likes" onClick={() => onLikePost(post.postid, post.likes)}>{post.likes} Likes</p>
             </div>
           )
         })}
