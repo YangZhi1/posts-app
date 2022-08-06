@@ -27,7 +27,7 @@ const Posts = () => {
       content: postContent,
       likes: 0
     }
-    const postUrl = 'http://localhost:3001/new_post';
+    const postUrl = 'http://localhost:3001/posts/new_post';
 
     fetch(postUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(newPost) })
     .then(response => response.json())
