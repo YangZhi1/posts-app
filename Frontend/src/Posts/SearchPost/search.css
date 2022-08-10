@@ -1,0 +1,22 @@
+.search-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+}
+
+.search-options {
+  margin-right: 5px;
+}
+
+.search-box {
+  width: 250px;
+}
+
+.search-icon {
+  position: relative;
+  right: 8%;
+}
+
+.search-icon:hover {
+  cursor: pointer;
+}
