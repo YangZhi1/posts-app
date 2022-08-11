@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SearchIcon from '../assets/search-icon.svg';
+import SearchIcon from '../../assets/search-icon.svg';
 import './search.css';
 
 import Dropdown from 'react-bootstrap/Dropdown';

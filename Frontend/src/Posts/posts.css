@@ -4,6 +4,11 @@
   align-items: center;
 }
 
+.post-content-container {
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  margin-bottom: 10px;
+}
+
 .post-container {
   display: flex;
   flex-direction: column;

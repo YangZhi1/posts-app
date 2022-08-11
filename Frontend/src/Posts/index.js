@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../Navbar';
-import CreatePost from './CreatePost';
-import IndividualPost from './IndividualPost';
+import CreatePost from './components/CreatePost';
+import IndividualPost from './components/IndividualPost';
 import './posts.css';
-import SearchPost from './SearchPost';
+import SearchPost from './components/SearchPost';
 
 const Posts = () => {
   const [listOfPosts, setListOfPosts] = useState('');
