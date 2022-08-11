@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../Navbar';
 import CreatePost from './CreatePost';
+import IndividualPost from './IndividualPost';
 import './posts.css';
 import SearchPost from './SearchPost';
 
@@ -78,14 +79,7 @@ const Posts = () => {
         <CreatePost addPost={addPost} />
         {listOfPosts && listOfPosts.map((post, index) => {
           return (
-            <div className="post-container" key={index}>
-              <div className="post-header">
-                <p className="author">{post.author}</p>
-                <p className="date">{post.date_created}</p>
-              </div>
-              <p>{post.content}</p>
-              <p className="likes" onClick={() => onLikePost(post.postid, post.likes)}>{post.likes} Likes</p>
-            </div>
+            <IndividualPost post={post} key={index} />
           )
         })}
       </div>
